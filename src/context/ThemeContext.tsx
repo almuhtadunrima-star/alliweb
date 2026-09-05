@@ -50,6 +50,13 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     } catch {
       // ignore in sandboxed environments
     }
+
+    // Enable smooth transition after first paint to prevent initial load flash
+    const timer = setTimeout(() => {
+      root.classList.add('theme-ready');
+    }, 50);
+
+    return () => clearTimeout(timer);
   }, [theme, isDark]);
 
   const toggleTheme = () => {

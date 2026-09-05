@@ -24,7 +24,7 @@
 
 html {
   color-scheme: light;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  scroll-behavior: auto;
 }
 
 [data-dark-mode="true"],
@@ -34,12 +34,53 @@ html {
   color-scheme: dark;
 }
 
+/* Silky smooth theme transition across all cards, typography, borders, backgrounds and shadows */
+.theme-ready,
+.theme-ready body,
+.theme-ready header,
+.theme-ready nav,
+.theme-ready main,
+.theme-ready section,
+.theme-ready footer,
+.theme-ready div,
+.theme-ready span,
+.theme-ready p,
+.theme-ready h1,
+.theme-ready h2,
+.theme-ready h3,
+.theme-ready h4,
+.theme-ready h5,
+.theme-ready h6,
+.theme-ready a,
+.theme-ready button,
+.theme-ready input,
+.theme-ready textarea,
+.theme-ready article,
+.theme-ready aside {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 450ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Protect the custom-animated day/night switch SVG elements from blanket transitions */
+.theme-ready .toggle,
+.theme-ready .toggle *,
+.theme-ready .pilot-bear,
+.theme-ready .pilot-bear *,
+.theme-ready .astrobear,
+.theme-ready .astrobear *,
+.theme-ready .stars,
+.theme-ready .stars *,
+.theme-ready [data-no-theme-transition],
+.theme-ready [data-no-theme-transition] * {
+  transition-property: inherit;
+}
+
 @layer base {
   body {
     font-family: var(--font-sans);
     background-color: #FAF9F6;
     color: #121417;
-    transition: background-color 0.35s ease, color 0.35s ease;
   }
 
   [data-dark-mode="true"] body,

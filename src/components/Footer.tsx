@@ -2,10 +2,11 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowUp, Mail, Phone, Instagram } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { scrollToElement } from './SmoothScroll';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToElement('#', 0);
   };
 
   return (

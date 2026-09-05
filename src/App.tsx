@@ -12,6 +12,7 @@ import { SkillsSection } from './components/SkillsSection';
 import { PhilosophySection } from './components/PhilosophySection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { scrollToElement } from './components/SmoothScroll';
 
 export default function App() {
   const [selectedSideId, setSelectedSideId] = useState<string>('player');
@@ -19,32 +20,20 @@ export default function App() {
 
   const handleSelectSideFromHero = (sideId: string) => {
     setSelectedSideId(sideId);
-    const el = document.getElementById('three-sides');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollToElement('#three-sides', -80);
   };
 
   const handleExploreWork = () => {
-    const el = document.getElementById('work');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollToElement('#work', -80);
   };
 
   const handleConnect = () => {
-    const el = document.getElementById('contact');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollToElement('#contact', -80);
   };
 
   const handleSelectService = (serviceTitle: string) => {
     setSelectedServiceForContact(serviceTitle);
-    const el = document.getElementById('contact');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollToElement('#contact', -80);
   };
 
   return (
